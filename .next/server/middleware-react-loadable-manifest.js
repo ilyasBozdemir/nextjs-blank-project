@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"_app.jsx -> ../layouts/MainLayout\":{\"id\":\"_app.jsx -> ../layouts/MainLayout\",\"files\":[\"static/chunks/layouts_MainLayout_jsx.js\"]}}"
