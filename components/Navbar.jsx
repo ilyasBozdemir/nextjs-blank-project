@@ -245,16 +245,6 @@ const DrawerExample = ({ isOpen, onOpen, onClose }) => {
 const MobileNavLink = ({ name, path, onClose }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const linkStyles = {
-    bg: isHovered
-      ? useColorModeValue("blue.100", "blue.800")
-      : useColorModeValue("gray.200", "gray.700"),
-    color: isHovered
-      ? useColorModeValue("blue.600", "blue.300")
-      : useColorModeValue("blue.500", "blue.200"),
-    transition: "background-color 0.2s, color 0.2s",
-  };
-
   return (
     <ChakraLink
       as={Link}
@@ -268,9 +258,6 @@ const MobileNavLink = ({ name, path, onClose }) => {
         rounded="md"
         p={3}
         fontSize="md"
-        _hover={{
-          ...linkStyles,
-        }}
         w={"full"}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
