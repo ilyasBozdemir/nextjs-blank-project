@@ -10,7 +10,8 @@ export const getServerSideProps = async ({ res }) => {
   const defaultLocale = i18n.defaultLocale;
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
     ${sitemapData
       .map(
         (sitemap) => `
@@ -19,7 +20,7 @@ export const getServerSideProps = async ({ res }) => {
         <lastmod>${currentDate.toISOString()}</lastmod>
         <changefreq>${sitemap.sitemap.changeFreq}</changefreq>
         <priority>${sitemap.sitemap.priority}</priority>
-
+        
       </url>
       `
       )
