@@ -1,10 +1,11 @@
 import { AppContextProvider } from "@/contexts/AppContext";
 import { CSSReset, ChakraProvider } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-const MainLayout = dynamic(() => import("../layouts/MainLayout"));
+import { appWithTranslation } from "next-i18next";
+const UserLayout = dynamic(() => import("../layouts/UserLayout"));
 
 function MyApp({ Component, pageProps }) {
-  let Layout = MainLayout;
+  let Layout = UserLayout;
 
   return (
     <ChakraProvider>
@@ -18,4 +19,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
