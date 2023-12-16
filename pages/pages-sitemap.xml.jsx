@@ -1,13 +1,10 @@
 import { i18n } from "@/next-i18next.config";
-import routes from "@/routes";
 import siteInfo from "@/siteInfo";
 export const getServerSideProps = async ({ res }) => {
   const baseUrl = siteInfo.baseUrl;
   const currentDate = new Date();
 
   const sitemapData = siteInfo.pages[i18n.defaultLocale];
-
-  const defaultLocale = i18n.defaultLocale;
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
