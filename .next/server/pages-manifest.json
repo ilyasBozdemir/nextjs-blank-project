@@ -3,7 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/about": "pages/about.js",
-  "/robots.txt": "pages/robots.txt.js",
   "/sitemap_index.xml": "pages/sitemap_index.xml.js"
 }

@@ -1,4 +1,5 @@
 import initialSiteInfo from "@/contexts/appContextValues";
+import { siteInfo } from "@/siteInfo";
 
 export const getServerSideProps = async ({ res }) => {
   const baseUrl = initialSiteInfo.baseUrl;
