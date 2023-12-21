@@ -1,5 +1,4 @@
 import PageWrapper from "@/components/Wrapper/PageWrapper";
-import routes from "@/routes";
 import { Flex } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -7,20 +6,24 @@ export default function Home() {
   const links = [
     {
       title: "Sitemap Index",
-      path: "/sitemap_index.xml",
+      path: "/sitemap/sitemap_index.xml",
     },
     {
       title: "Pages Sitemap",
-      path: "/pages-sitemap.xml",
+      path: "/sitemap/pages-sitemap.xml",
     },
     {
       title: "Blog Sitemap",
-      path: "/blog-sitemap.xml",
+      path: "/sitemap/blog-sitemap.xml",
     },
 
     {
       title: "Robots.txt",
       path: "/robots.txt",
+    },
+    {
+      title: "Rss blog-1",
+      path: "/rss/blog-1.xml",
     },
   ];
 

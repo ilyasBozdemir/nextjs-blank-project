@@ -16,9 +16,11 @@ export const getServerSideProps = async ({ res, req }) => {
     !ifModifiedSince ||
     new Date(ifModifiedSince) < new Date(currentDate - CACHE_DURATION * 1000)
   ) {
+
+
+
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-      <urlset
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" 
@@ -28,27 +30,26 @@ export const getServerSideProps = async ({ res, req }) => {
         ${sitemapData
           .map(
             (sitemap) => `
-            <url>
-              <lastmod>${formatDate(currentDate)}</lastmod>
-              <changefreq>${sitemap.sitemap.changeFreq}</changefreq>
-              <priority>${sitemap.sitemap.priority}</priority>
-              <loc>${baseUrl}${sitemap.source}</loc>
-              ${i18n.locales
-                .map((locale) => {
-                  var source =
-                    i18n.defaultLocale === locale ? sitemap.source : `/#`;
+     <url>
+          <lastmod>${formatDate(currentDate)}</lastmod>
+          <changefreq>${sitemap.sitemap.changeFreq}</changefreq>
+          <priority>${sitemap.sitemap.priority}</priority>
+          <loc>${baseUrl}${sitemap.source}</loc>
+    ${i18n.locales
+            .map((locale) => {
+              
+              var source = i18n.defaultLocale === locale ? sitemap.source : `/#`;
 
-                  return `<xhtml:link rel="alternate" hreflang="${locale}" href="${source}"  />`;
-                })
-                .join("\n              ")}
-              <xhtml:link rel="alternate" hreflang="x-default" href="${
-                sitemap.source
-              }"  />
-            </url>
+
+            return `<xhtml:link rel="alternate" hreflang="${locale}" href="${source}"/>`;
+            })
+            .join("\n          ")}
+          <xhtml:link rel="alternate" hreflang="x-default" href="${ sitemap.source }"  />
+     </url>
           `
           )
           .join("")}
-      </urlset>`;
+</urlset>`;
 
     // Yeni önbellek süresi
     const cacheExpiryTime = new Date(currentDate);
@@ -77,5 +78,3 @@ export const getServerSideProps = async ({ res, req }) => {
 function PagesSitemapXml() {}
 
 export default PagesSitemapXml;
-
-
