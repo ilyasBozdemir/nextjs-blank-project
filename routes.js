@@ -52,7 +52,7 @@ const enRoutes = {
       pageName: "pages-sitemap.xml",
       changeFreq: "weekly",
       priority: "1",
-    }
+    },
   },
   "/about": {
     source: i18n.defaultLocale !== "tr" ? "en/about" : "/about",
@@ -66,8 +66,8 @@ const enRoutes = {
     },
     sitemap: {
       pageName: "pages-sitemap.xml",
-      changeFreq: "weekly",
-      priority: "0.8",
+      changefreq: "monthly",
+      priority: 0.7,
     },
   },
 };

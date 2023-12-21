@@ -35,7 +35,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <Box px={4} bg={useColorModeValue("white", "gray.800")}>
+    <Box px={4} bg={useColorModeValue("white", "gray.800")} color={'primary'}>
       <Flex h={16} alignItems="center" justifyContent="space-between" mx="auto">
        <Logo/>
 

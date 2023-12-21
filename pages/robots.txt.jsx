@@ -1,5 +1,6 @@
 // pages/robots.txt.jsx
 import initialSiteInfo from "@/contexts/appContextValues";
+import React from "react";
 
 const baseUrl = initialSiteInfo.baseUrl;
 
@@ -43,6 +44,7 @@ const RobotsTxt = ({ allowDisallow = [] }) => {
 export const getServerSideProps = async ({ res }) => {
   const userDefinedPages = ["/example-page", "/another-page"];
   const userDefinedAllowDisallow = [
+    "# userDefinedAllowDisallow",
     "Allow: /allowed-page",
     "Disallow: /disallowed-page",
   ];
@@ -61,4 +63,6 @@ export const getServerSideProps = async ({ res }) => {
   };
 };
 
-export default RobotsTxt;
+
+
+export default React.memo(RobotsTxt);

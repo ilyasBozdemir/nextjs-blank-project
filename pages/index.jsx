@@ -1,22 +1,43 @@
 import PageWrapper from "@/components/Wrapper/PageWrapper";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import routes from "@/routes";
+import { Flex } from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const links = [
+    {
+      title: "Sitemap Index",
+      path: "/sitemap_index.xml",
+    },
+    {
+      title: "Pages Sitemap",
+      path: "/pages-sitemap.xml",
+    },
+    {
+      title: "Blog Sitemap",
+      path: "/blog-sitemap.xml",
+    },
+
+    {
+      title: "Robots.txt",
+      path: "/robots.txt",
+    },
+  ];
+
   return (
     <PageWrapper>
-      <center>
-        <p>{t("greeting", { name: "ilyas" })}</p>
-      </center>
+      <Flex
+        as={"nav"}
+        direction={"column"}
+        justifyContent={"center"}
+        textAlign={"center"}
+      >
+        {links.map((link) => (
+          <Link key={link.path} href={link.path} locale={"tr"} target="_blank">
+            {link.title}
+          </Link>
+        ))}
+      </Flex>
     </PageWrapper>
   );
-}
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
 }

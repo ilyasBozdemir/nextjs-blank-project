@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function BlogSitemapXml() {
-  return (
-    <>BlogSitemapXml</>
-  )
+  return <>BlogSitemapXml</>;
 }
 
-export default BlogSitemapXml
+export default React.memo(BlogSitemapXml);

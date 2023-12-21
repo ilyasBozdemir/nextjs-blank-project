@@ -1,24 +1,14 @@
-import initialSiteInfo from "@/contexts/appContextValues";
+import React from "react";
 import { siteInfo } from "@/siteInfo";
+import { generateSitemapIndexGenerator } from "@/utils/generateSitemapIndexGenerator";
 
 export const getServerSideProps = async ({ res }) => {
-  const baseUrl = initialSiteInfo.baseUrl;
-  const currentDate = new Date();
- 
-  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
-    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${siteInfo.sitemaps
-        .map((sitemap) => {
-          return `
-          <sitemap>
-          <loc>${baseUrl}/${sitemap.fileName}</loc>
-          <lastmod>${currentDate.toISOString()}</lastmod>
-        </sitemap>
-          `;
-        })
+  const baseUrl = siteInfo.baseUrl;
 
-        .join("")}
-    </sitemapindex>`;
+  const sitemapIndex = generateSitemapIndexGenerator(
+    baseUrl,
+    siteInfo.sitemaps
+  );
 
   res.setHeader("Content-Type", "text/xml");
   res.write(sitemapIndex);
@@ -28,4 +18,6 @@ export const getServerSideProps = async ({ res }) => {
   };
 };
 
-export default function SitemapIndex() {}
+function SitemapIndex() {}
+
+export default React.memo(SitemapIndex);

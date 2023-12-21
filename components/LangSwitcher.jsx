@@ -57,7 +57,7 @@ function LangSwitcher() {
         }}
         cursor={"pointer"}
       >
-        {currentLocale === "en" ? "Türkçe" : "English"}
+        {currentLocale === "en" ? "TR" : "EN"}
       </Button>
     </>
   );
